@@ -17,4 +17,8 @@ public class UserService {
 
         return user.get();
     }
+
+    public User submit(User userRequest) {
+        return userRepository.save(userRequest);
+    }
 }

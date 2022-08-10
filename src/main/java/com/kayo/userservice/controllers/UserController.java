@@ -1,7 +1,6 @@
 package com.kayo.userservice.controllers;
 
 import com.kayo.userservice.dto.User;
-import com.kayo.userservice.dto.request.UserRequest;
 import com.kayo.userservice.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +17,7 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public User submitUser(@RequestBody UserRequest user) {
-        return new User();
+    public User submitUser(@RequestBody User user) {
+        return userService.submit(user);
     }
 }

@@ -47,4 +47,17 @@ public class UserServiceTest {
 
         Assert.assertEquals(id, response.getId());
     }
+
+    @Test
+    public void submit_returnTrue_whenSuccess() {
+        user.setUsername("leomessi");
+        user.setFirstName("Leo");
+        user.setLastName("Messi");
+        user.setPhone("0898999");
+        when(userRepository.save(any())).thenReturn(user);
+
+        User response = userService.submit(user);
+
+        Assert.assertEquals(response, user);
+    }
 }
